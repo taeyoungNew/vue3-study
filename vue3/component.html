@@ -1,0 +1,17 @@
+<div id="app">
+  <!-- 컴포넌트 표시 -->
+  <app-header></app-header>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  Vue.createApp({
+    // 인스턴스 옵션속성 - 옵션 API
+    components: {
+      // '컴포넌트이름': 컴포넌트내용
+      "app-header": {
+        // template를 선언 후 HTML요소
+        template: "<h1>컴포넌트 등록</h1>",
+      },
+    },
+  }).mount("#app");
+</script>

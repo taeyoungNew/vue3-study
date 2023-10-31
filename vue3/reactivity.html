@@ -1,0 +1,28 @@
+<div id="app"></div>
+
+<script>
+  const data = {
+    a: 10,
+  };
+
+  function render(sth) {
+    const div = document.querySelector("#app");
+    div.innerHTML = sth;
+  }
+
+  // Proxy  = 대리인이라는 뜻
+  // 1번째 인자에 위에서 선언한 data를 넘기고
+  // 2번째 인자에 데이터의 동작을 정의하는 함수를 넘긴다.
+  const app = new Proxy(data, {
+    get() {
+      console.log("hi");
+    },
+    // app.a = "새로운값" 을 하면 set() 메서드가 실행됨
+    set(target, property, newValue) {
+      // 객체의 속성깂에 새로운 값을 넣어줌
+      target[property] = newValue;
+      console.log("값 갱신");
+      render(newValue);
+    },
+  });
+</script>

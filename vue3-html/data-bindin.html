@@ -1,0 +1,28 @@
+<div id="app">
+  <!-- v-if v-else -->
+  <p v-if="login">로그인 되었습니다.</p>
+  <p v-else>로그인하세요</p>
+  <button v-on:click="loginUser">로그인</button>
+
+  <hr />
+
+  <!-- v-show display:none처리 되어있고 login이 true가 되면 block으로 바뀐다-->
+  <p v-show="login">로그인 되었습니다.</p>
+  <button v-on:click="loginUser"></button>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  Vue.createApp({
+    data() {
+      return {
+        login: false,
+      };
+    },
+    methods: {
+      loginUser() {
+        this.login = !this.login;
+      },
+    },
+  }).mount("#app");
+</script>
